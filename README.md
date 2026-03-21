@@ -241,27 +241,35 @@ $$\text{Percentile}_{i,t} = \frac{\text{Rank}(\text{QMJ Score}_i) - 1}{N - 1} \t
 ## QMJ Score Distribution & Portfolio Assignment
 ### QMJ Score Analysis 
 ![growth Score](assets/qmj_score_distribution.png)
-*Figure 10: การกระจายตัวของ QMJ Score ในช่วง FY2023–2025 แสดงให้เห็นว่าคะแนนมีลักษณะใกล้เคียงการแจกแจงแบบปกติ (normal distribution) และมีการแบ่งกลุ่ม Quality (Top 30%) และ Junk (Bottom 30%) อย่างชัดเจนในทุกปี โดย threshold ของ Quality อยู่ในช่วงค่าบวก และ Junk อยู่ในช่วงค่าลบอย่างสม่ำเสมอ สะท้อนถึงความเสถียรของกระบวนการจัดอันดับ (ranking stability) และความสามารถของโมเดลในการแยกหุ้นคุณภาพสูงออกจากหุ้นคุณภาพต่ำได้อย่างต่อเนื่อง*
+*Figure 10: การกระจายตัวของ QMJ Score ในช่วง FY2023–2025 พร้อมเส้น normal fit และจุดตัดสำหรับการแบ่งกลุ่ม Quality (Top 30%) และ Junk (Bottom 30%)*
+
+การกระจายตัวของ QMJ Score ในช่วง FY2023–2025 แสดงให้เห็นว่าคะแนนมีลักษณะใกล้เคียงการแจกแจงแบบปกติ (normal distribution) โดยมีการแบ่งกลุ่ม Quality (Top 30%) และ Junk (Bottom 30%) ในทุกปีอย่างสม่ำเสมอ โดย threshold ของ Quality อยู่ในช่วงค่าบวก และ Junk อยู่ในช่วงค่าลบ
 
 ![growth Score](assets/qmj_components_boxplot.png)
-*Figure 11: การกระจายตัวของคะแนน QMJ components (Profit, Safety, Growth) แสดงให้เห็นว่า Quality มี distribution ที่เลื่อนไปทางค่าบวก ขณะที่ Junk กระจายตัวในช่วงค่าลบอย่างสม่ำเสมอ สะท้อนถึงความสามารถของแต่ละปัจจัยในการแยกกลุ่มหุ้นได้ในเชิง cross-sectional*
+*Figure 11: การกระจายตัวของคะแนน QMJ components (Profit, Safety, Growth) สำหรับกลุ่ม Quality (Top 30%) และ Junk (Bottom 30%) แสดงด้วย boxplot และ outliers*
 
-Outliers ที่ปรากฏใน distribution ของ QMJ components เป็นลักษณะปกติของ financial data ซึ่งมักมีลักษณะ heavy-tailed จากความแตกต่างของโครงสร้างธุรกิจ (เช่น asset-light vs asset-heavy) และวัฏจักรเศรษฐกิจ ทำให้บางบริษัทมีค่าที่เบี่ยงจากกลุ่มอย่างชัดเจน นอกจากนี้ยังอาจเกิดจากรายการทางบัญชีหรือเหตุการณ์พิเศษ (one-off) เช่น การเปลี่ยนแปลงเงินทุนหมุนเวียนหรือกำไรพิเศษ ซึ่งส่งผลให้ค่าบางช่วงเวลาผันผวนสูงกว่าปกติ
+การกระจายตัวของคะแนน QMJ components (Profit, Safety, Growth) แสดงให้เห็นว่า Quality มีค่าโดยรวมอยู่ฝั่งบวก ขณะที่ Junk อยู่ฝั่งลบ และสามารถแยกกลุ่มได้ในทุกมิติ โดยเฉพาะด้าน Safety ที่มีความแตกต่างชัดเจนที่สุด อย่างไรก็ตามยังมีบางช่วงที่ค่าของทั้งสองกลุ่มทับซ้อนกันใกล้ศูนย์ แสดงว่าการแยกกลุ่มไม่ได้สมบูรณ์ในทุกกรณี นอกจากนี้ทั้ง Quality และ Junk ต่างก็มีลักษณะหาง (tails) และ outliers ซึ่งเป็นเรื่องปกติของข้อมูลการเงิน ซึ่งเกิดจากความแตกต่างของธุรกิจและเหตุการณ์พิเศษบางช่วง และมีระดับใกล้เคียงกันในทั้งสองกลุ่ม สะท้อนว่าความเสี่ยงของค่าที่เบี่ยงเบนอย่างรุนแรงสามารถเกิดขึ้นได้ในทั้งสองฝั่ง
 
 ![growth Score](assets/qmj_mean_component_bar.png)
-*Figure 12: ค่าเฉลี่ยของคะแนน QMJ components ระหว่าง Quality และ Junk แสดงให้เห็นว่า Safety มี discriminatory power สูงที่สุด รองลงมาคือ Growth และ Profit ซึ่งยืนยันว่าทั้งสามมิติสามารถแยกหุ้นคุณภาพได้อย่างมีนัยสำคัญ*
+*Figure 12: ค่าเฉลี่ยของคะแนน QMJ components (Profit, Safety, Growth) สำหรับกลุ่ม Quality (Top 30%) และ Junk (Bottom 30%) พร้อมค่า gap ระหว่างสองกลุ่ม*
+
+ค่าเฉลี่ยของคะแนน QMJ components ระหว่าง Quality และ Junk แสดงให้เห็นว่ากลุ่ม Quality มีค่าคะแนนสูงกว่ากลุ่ม Junk ในทุกมิติ โดย Safety มีความแตกต่างของค่าเฉลี่ยมากที่สุด รองลงมาคือ Growth และ Profit ซึ่งสะท้อนถึงความสามารถของแต่ละปัจจัยในการแยกกลุ่มหุ้นได้อย่างชัดเจน
 
 ![growth Score](assets/qmj_factor_correlation_heatmap.png)
-*Figure 13: Correlation heatmap ของ QMJ factors (z-scores) แสดงความสัมพันธ์ระหว่างตัวชี้วัดในแต่ละมิติ โดยส่วนใหญ่มีความสัมพันธ์ในระดับต่ำถึงปานกลาง สะท้อนว่าแต่ละ factor ให้ข้อมูลที่แตกต่างกัน (diversified signals) และไม่ซ้ำซ้อนกันมากนัก ซึ่งช่วยเพิ่มประสิทธิภาพของ composite model ในการจับสัญญาณคุณภาพหุ้นได้ดียิ่งขึ้น*
+*Figure 13: Correlation heatmap ของ QMJ factors (z-scores) แสดงค่าสหสัมพันธ์ระหว่างตัวชี้วัดในแต่ละมิติ (Profitability, Safety และ Growth)*
+
+Correlation heatmap ของ QMJ factors (z-scores) แสดงให้เห็นว่าความสัมพันธ์ระหว่างตัวชี้วัดส่วนใหญ่อยู่ในระดับต่ำถึงปานกลาง แม้ว่าจะมีบางคู่ที่มีความสัมพันธ์ค่อนข้างสูงในบางมิติ แต่โดยรวมแล้ว สะท้อนว่าแต่ละ factor ให้ข้อมูลที่แตกต่างกัน (diversified signals) และไม่ซ้ำซ้อนกันมากนัก ซึ่งช่วยเพิ่มประสิทธิภาพของ composite model ในการจับสัญญาณคุณภาพหุ้นได้ดียิ่งขึ้น
 
 ![growth Score](assets/qmj_score_trend_with_spreads.png)
-*Figure 14: QMJ Score และ Q–J Spread ของแต่ละ component ในช่วงเวลา*
+*Figure 14: แนวโน้มค่าเฉลี่ย QMJ Score ของกลุ่ม Quality และ Junk พร้อมค่า Q–J Spreadของแต่ละ component (Profit, Safety และ Growth) ในแต่ละปี*
 
-QMJ Score และ component spreads มีความเสถียรในระยะยาว โดย Quality outperform Junk อย่างต่อเนื่องในทุกมิติ แม้มีความผันผวนระยะสั้นในบางช่วงเวลา
+QMJ Score และ component spreads แสดงแนวโน้มที่สม่ำเสมอ โดย Quality มีค่าคะแนนสูงกว่า Junk ในทุกช่วงเวลา และค่า Q–J Spread ของแต่ละ component ยังคงเป็นบวกอย่างต่อเนื่อง แม้จะมีความผันผวนในบางปี ซึ่งสะท้อนถึงความสามารถของโมเดลในการแยกหุ้นคุณภาพได้อย่างต่อเนื่องตลอดช่วงเวลา
 
 ## Stock-Level Quality
 ![qmj_top_quality_junk_heatmap](assets/qmj_top_quality_junk_heatmap.png)
-*Figure 15: Heatmap ของ QMJ Score สำหรับหุ้นที่ติดกลุ่ม Quality และ Junk บ่อยที่สุดในช่วงปี 2006–2025 โดยตัวเลขในแต่ละช่องแสดงค่า QMJ Score และ percentile rank ของหุ้นในปีนั้น ๆ ขณะที่คอลัมน์ Avg สรุปค่าเฉลี่ยตลอดช่วงเวลา ผลลัพธ์แสดงให้เห็นว่าหุ้นในกลุ่ม Quality มีคะแนนเป็นบวกและอยู่ใน percentile สูงอย่างสม่ำเสมอ ขณะที่หุ้นในกลุ่ม Junk มีคะแนนเป็นลบและอยู่ใน percentile ต่ำต่อเนื่อง สะท้อนถึงความคงทนของสัญญาณคุณภาพในระดับรายหลักทรัพย์ (stock-level persistence)*
+*Figure 15: Heatmap ของ QMJ Score สำหรับหุ้นที่อยู่ในกลุ่ม Quality และ Junk บ่อยในช่วงปี 2006–2025 โดยแสดงค่า QMJ Score และ percentile rank ในแต่ละปี พร้อมค่าเฉลี่ย (Avg) ตลอดช่วงเวลา*
+
+Heatmap ของ QMJ Score สำหรับหุ้นที่อยู่ในกลุ่ม Quality และ Junk บ่อยในช่วงปี 2006–2025 แสดงให้เห็นว่าหุ้นในกลุ่ม Quality โดยรวมมีค่า QMJ Score เป็นบวกและอยู่ใน percentile ที่สูง ขณะที่หุ้นในกลุ่ม Junk มีค่าเป็นลบและอยู่ใน percentile ที่ต่ำในหลายช่วงเวลา แม้จะมีบางปีที่ค่าของแต่ละหุ้นเปลี่ยนแปลงไปจากแนวโน้มเดิม แต่ค่าเฉลี่ย (Avg) ยังคงสะท้อนความแตกต่างระหว่างสองกลุ่มได้อย่างชัดเจน
 
 ## Sector-Level Quality Dynamics
 
