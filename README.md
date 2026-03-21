@@ -69,6 +69,14 @@
 - [x] AAA (All-Around Amazing)
  
 ---
+
+### ✅ Hyperparameter Backtest
+ 
+- [x] Support Multi Strategies
+- [x] Support Multi Lookbacks
+- [x] Support Multi Rebalances
+ 
+---
  
 ## Introduction
 
