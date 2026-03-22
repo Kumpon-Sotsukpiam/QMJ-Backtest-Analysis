@@ -119,7 +119,7 @@ $$\text{Profitability} = z\left(\frac{1}{6}(z_{\text{GPOA}} + z_{\text{ROE}} + z
   <img src="assets/profitability_A_diverging.png" width="800"/>
 </p>
 <p align="center">
-  <b>Figure 1 :</b> ค่า rolling beta และ correlation ของพอร์ต Quality และ Junk เทียบกับ S&amp;P 500 ในแต่ละช่วงเวลา
+  <b>Figure 1 :</b> ค่าเฉลี่ย z-score ของตัวชี้วัดด้าน Profitability (ROA, GPOA, ROE, GMAR และ Accruals) สำหรับกลุ่ม Quality, Middle และ Junk
 </p>
 <!-- ![Profitability Score](assets/profitability_A_diverging.png) -->
 <!-- *Figure 1: ค่าเฉลี่ย z-score ของตัวชี้วัดด้าน Profitability (ROA, GPOA, ROE, GMAR และ Accruals) สำหรับกลุ่ม Quality, Middle และ Junk* -->
