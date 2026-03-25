@@ -17,7 +17,7 @@
 - [x] ROA
 - [x] GMAR
 - [x] ACC
-- [ ] CFOA
+- [ ] CFOA (coming soon)
  
 **Status: 5/6 (CFOA not implementing)**
  
@@ -25,8 +25,8 @@
 - [x] LEV (Leverage)
 - [x] EVOL (Stability)
 - [ ] BAB (Beta)
-- [ ] O-Score (Ohlson)
-- [ ] Z-Score (Altman)
+- [ ] O-Score (Ohlson) (coming soon)
+- [ ] Z-Score (Altman) (coming soon)
  
 **Status: 2/5 (BAB, O-Score, Z-Score not implementing)**
  
@@ -35,7 +35,7 @@
 - [x] ΔROE
 - [x] ΔROA
 - [x] ΔGMAR
-- [ ] ΔCFOA
+- [ ] ΔCFOA (coming soon)
  
 **Status: 4/5 (ΔCFOA not implementing)**
 
